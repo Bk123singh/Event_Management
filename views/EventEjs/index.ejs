@@ -1,0 +1,25 @@
+
+<style>
+    
+</style>
+<body>
+    All Events
+
+    <div class="row row-cols-lg-3 row-cols-sm-1 row-cols-md-2">
+    <% for(datas of data) {%>
+    <div class="card" style="width: 18rem;">
+     
+    <div class="card-body">
+    <h5 class="card-title">Title:<%=datas.title%></h5>
+    <p class="card-text">Location<%=datas.location%></p>
+    <p class="card-text">capacity<%=datas.capacity%></p>
+    <p class="card-text">Date<%=datas.date%></p>
+    
+  </div>
+</div>
+
+
+    <% } %>
+    </div>
+   
+</body>
