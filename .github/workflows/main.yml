@@ -8,18 +8,18 @@ jobs:
   build-management-app:
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/cache@v5.1.0
-    - name: Set up Node JS
-    - uses: actions/setup-node@v7.1.0
-      with:
-        node-version: 22.x
-    - name: Install Dependencies
-      run: npm install
-    - name: Build Node.js APP
-      run: npm run build
-        
-    
-    
-    
-    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Node.js APP
+        run: npm run build
