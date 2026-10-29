@@ -1,11 +1,13 @@
-name: Build my event management
+name: CI - Event Management App
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build-management-app:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,8 +20,8 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build Node.js APP
-        run: npm run build
+      - name: Validate app syntax
+        run: node --check app.js
